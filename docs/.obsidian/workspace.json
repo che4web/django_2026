@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "640bd3a85008c44d",
+    "type": "split",
+    "children": [
+      {
+        "id": "bdbc6cd7a3cd4ac1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57b50fe0c3ae26e6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Новая вкладка"
+            }
+          }
+        ]
+      },
+      {
+        "id": "69fcb183548d8358",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fddef3b6191f2d4b",
+            "type": "leaf",
+            "state": {
+              "type": "marp-preview-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "marp-preview-view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c2459edf1c1f3862",
+    "type": "split",
+    "children": [
+      {
+        "id": "bf88ca7c93941f59",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e54832a91f618c33",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "98fa58f50811be0f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
+            }
+          },
+          {
+            "id": "557a6a33cbb6b2cb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "16af3867fcb33f22",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd52a13263d30fe3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "18cd63ba1ba6ef36",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Добро пожаловать.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки для Добро пожаловать"
+            }
+          },
+          {
+            "id": "6f3d9146b5188796",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Добро пожаловать.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки из Добро пожаловать"
+            }
+          },
+          {
+            "id": "87dcf52a63161154",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "e2f034da8e6e157c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Все свойства"
+            }
+          },
+          {
+            "id": "da7ad435fe52e701",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Добро пожаловать.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Структура Добро пожаловать"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false,
+      "obsidian-excalidraw-plugin:Создать новый чертеж": false
+    }
+  },
+  "active": "fddef3b6191f2d4b",
+  "lastOpenFiles": [
+    "Презентации/lect01.pdf",
+    "Презентации/lect00_intro.pdf",
+    "Презентации/src/lect00_intro.pdf",
+    "Презентации/src/lect01.pdf",
+    "Презентации/src/lect00_intro.typ",
+    "Презентации/src/lect01.typ",
+    "Презентации/src/img_back/windowObjects.png",
+    "Презентации/src/img_back/screenshot006.png",
+    "Презентации/src/img_back/screenshot005.png",
+    "Презентации/src/img_back/screenshot004.png",
+    "Презентации/src/img_back/screenshot003.png",
+    "Презентации/src/img_back/res18.png",
+    "Презентации/src/img_back/res16.png",
+    "Презентации/src/img_back/ose.png",
+    "Презентации/src/img_back/main-qimg-09f5cf57e8c9de343282f1fa84f33345.jpg",
+    "Презентации/src/img_back/nginx.png",
+    "Презентации/src/img_back",
+    "Презентации/src/img",
+    "Презентации/src",
+    "Презентации/img_back",
+    "Презентации/lect00_intro.typ",
+    "Презентации/Лекция 1.md",
+    "Excalidraw/Drawing 2026-05-15 19.44.50.excalidraw.md",
+    "Добро пожаловать.md"
+  ]
+}
