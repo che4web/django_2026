@@ -11,26 +11,12 @@
             "id": "57b50fe0c3ae26e6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Новая вкладка"
-            }
-          }
-        ]
-      },
-      {
-        "id": "69fcb183548d8358",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "fddef3b6191f2d4b",
-            "type": "leaf",
-            "state": {
-              "type": "marp-preview-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "marp-preview-view"
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-05-16 12.03.33.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-05-16 12.03.33.excalidraw"
             }
           }
         ]
@@ -90,7 +76,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "16af3867fcb33f22",
@@ -196,8 +183,9 @@
       "obsidian-excalidraw-plugin:Создать новый чертеж": false
     }
   },
-  "active": "fddef3b6191f2d4b",
+  "active": "57b50fe0c3ae26e6",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2026-05-16 12.03.33.excalidraw.md",
     "Презентации/lect01.pdf",
     "Презентации/lect00_intro.pdf",
     "Презентации/src/lect00_intro.pdf",
@@ -218,7 +206,6 @@
     "Презентации/src/img",
     "Презентации/src",
     "Презентации/img_back",
-    "Презентации/lect00_intro.typ",
     "Презентации/Лекция 1.md",
     "Excalidraw/Drawing 2026-05-15 19.44.50.excalidraw.md",
     "Добро пожаловать.md"
