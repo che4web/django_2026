@@ -4073,7 +4073,7 @@
             "version": 36,
             "versionNonce": 1422293271,
             "isDeleted": false,
-            "boundElements": null,
+            "boundElements": [],
             "updated": 1778921277489,
             "locked": false,
             "text": "JS",
@@ -4086,7 +4086,8 @@
             "originalText": "JS",
             "autoResize": true,
             "lineHeight": 1.25,
-            "hasTextLink": false
+            "hasTextLink": false,
+            "link": null
           }
         ],
         "id": "KKNLmnK_14lIiVmkC3-SZ",
