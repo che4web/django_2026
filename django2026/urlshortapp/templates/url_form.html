@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+{% block content%}
+<h1> создание формы </h1>
+<form method="POST">
+    <label> source_url</label>
+    <input name="source_url" class="form-control">
+    <label> short_url</label>
+    {% csrf_token%}
+    <input name="short_url" class="form-control">
+    <button class="btn btn-primary"> save </button>
+</form>
+{%endblock%}

@@ -2,7 +2,7 @@
 
 #show: slides.with(
   title: "Django Vue Lab",
-  subtitle: "Занятие 2. Backend разработка, обработка запросов",
+  subtitle: "Занятие 2. Backend разработка, MVC",
   authors: "Черепанов И.Н. Филипьев В.А.",
   subslide-numbering: "(i)",
 )
@@ -259,4 +259,15 @@ def detail(request, question_id):
 - После отрисовки передается пользователю
 - нет связи с сервером.
 
-= Спасибо за внимание
+==
+
+#v(1fr)
+#align(center)[
+  #text(size: 1.8em, fill: default-color)[*Спасибо за внимание*]
+
+  #v(0.6em)
+  #text(size: 0.65em)[Квест завершен]
+
+  #text(size: 0.65em )[Новая цель: перейти к вопросам]
+]
+#v(1fr)
