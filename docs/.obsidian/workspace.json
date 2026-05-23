@@ -30,9 +30,21 @@
               "icon": "excalidraw-icon",
               "title": "Drawing 2026-05-23 11.56.32.excalidraw"
             }
+          },
+          {
+            "id": "29e5d676aea28ebc",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-05-23 15.41.07.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-05-23 15.41.07.excalidraw"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -89,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "16af3867fcb33f22",
@@ -196,12 +207,13 @@
       "obsidian-excalidraw-plugin:Создать новый чертеж": false
     }
   },
-  "active": "ff60ef51fe2ccf61",
+  "active": "29e5d676aea28ebc",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2026-05-23 11.56.32.excalidraw.md",
+    "Excalidraw/Drawing 2026-05-23 15.41.07.excalidraw.md",
     "Примеры/http/index.html~",
     "Примеры/http/index.html",
     "Excalidraw/Drawing 2026-05-16 12.03.33.excalidraw.md",
-    "Excalidraw/Drawing 2026-05-23 11.56.32.excalidraw.md",
     "Лекции/00_введение_в_курс_и_история_веба.md",
     "Лекции/01_http_клиент_сервер_и_архитектура_веба.md",
     "Excalidraw/Drawing 2026-05-19 20.42.48.excalidraw.md",
@@ -223,7 +235,6 @@
     "Презентации/src/img_back/nginx.png",
     "Презентации/src/img_back",
     "Презентации/src/img",
-    "Презентации/src",
     "Презентации/Лекция 1.md",
     "Excalidraw/Drawing 2026-05-15 19.44.50.excalidraw.md",
     "Добро пожаловать.md"

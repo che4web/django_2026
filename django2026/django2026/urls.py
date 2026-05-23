@@ -17,10 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from urlshortapp.views import create_url, index
+from urlshortapp.views import create_url, index, redirect_url
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", index),
-    path("form", create_url),
+    path("shortttt/<str:short_url>/", redirect_url, name="short-url"),
+    path("form", create_url, name="create-url"),
 ]
