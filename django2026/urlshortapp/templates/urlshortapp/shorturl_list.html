@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="container">
+    <h1 class="text-center">
+        Short URL
+    </h1>
+    <form method="POST" action="form">
+        <div class="row">
+            <div class="col-2">
+                <label> Введите url</label>
+            </div>
+            <div class="col-5">
+                <input name="source_url" class="form-control" required>
+            </div>
+            <div class="col-5">
+                <button class="btn btn-primary"> save </button>
+            </div>
+            {% csrf_token%}
+        </div>
+
+    </form>
+    <hr>
+
+    <table class="table table-hover table-bordered">
+        <tbody>
+            {% for item_url in object_list %}
+            <tr>
+                <td>{{item_url.id}}</td>
+                <td>
+                    <a href="{{item_url.source_url}}">{{item_url.source_url}}</a>
+                </td>
+                <td> <a href="{% url 'short-url'  short_url=item_url.short_url %}">{{item_url.short_url}} </a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock%}

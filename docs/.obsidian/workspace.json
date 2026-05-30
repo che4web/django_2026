@@ -14,14 +14,27 @@
               "type": "markdown",
               "state": {
                 "file": "Проекты/Сводная таблица проектов.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "Сводная таблица проектов"
             }
+          },
+          {
+            "id": "29cb2fa0eda09b29",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-05-30 11.50.51.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-05-30 11.50.51.excalidraw"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,7 +91,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "16af3867fcb33f22",
@@ -184,12 +198,13 @@
       "obsidian-excalidraw-plugin:Создать новый чертеж": false
     }
   },
-  "active": "e54832a91f618c33",
+  "active": "29cb2fa0eda09b29",
   "lastOpenFiles": [
+    "Проекты/Сводная таблица проектов.md",
+    "Excalidraw/Drawing 2026-05-30 11.50.51.excalidraw.md",
+    "Проекты/Бердников Даниил/Проект.md",
     "Проекты/Деменев Антон/Деменев Антон Описание проекта.pdf",
     "Проекты/Братчиков Артём/Проект.md",
-    "Проекты/Сводная таблица проектов.md",
-    "Проекты/Бердников Даниил/Проект.md",
     "Проекты/Зырянова Татьяна/Проект.md",
     "Проекты/index.md",
     "Проекты/Даниил Бердников.md",
@@ -221,7 +236,6 @@
     "Проекты/Зырянова Татьяна/ДЗ_Джанго_Зырянова (Статья) (2)-2.pdf",
     "Проекты/Ларьков Денис/ДЗ мой проект.docx",
     "Проекты/Дворак Виталий/projectspacemonkey.docx",
-    "Проекты/Чернышева Анна/Чернышева Анна Ивановна.docx",
     "Презентации/src/img/main-qimg-09f5cf57e8c9de343282f1fa84f33345.jpg",
     "Презентации/src/img/240px-MVC-Process.png",
     "Презентации/src/img_back/windowObjects.png",

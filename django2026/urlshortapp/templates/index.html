@@ -1,5 +1,28 @@
 {% extends "base.html"%}
 {% block content%}
+<script>
+    async function getData(){
+
+        let inp = document.getElementById("id_search")
+        let search = inp.value 
+        let data = await fetch("list_json?search="+search)
+        let data_json = await data.json()
+        console.log(data_json)
+        let tempalte = '<ul>'
+        for( item of data_json){
+            tempalte += `<li> id: ${item.id}, url ${item.source_url} </li> `
+        }
+        tempalte+="</ul>"
+        console.log(tempalte)
+        let el = document.getElementById("app")
+        el.innerHTML=tempalte
+        console.log(el)
+        
+    }
+</script>
+
+
+
 <div class="container">
 <h1 class="text-center">
     Short URL
@@ -10,7 +33,7 @@
     <label> Введите url</label>
     </div>
 <div class="col-5">
-    <input name="source_url" class="form-control" required>
+    <input name="source_url" class="form-control" required >
     </div>
 <div class="col-5">
     <button class="btn btn-primary"> save </button>
@@ -19,7 +42,23 @@
 </div>
 
 </form>
+
 <hr>
+
+<form method="GET">
+<div class="row">
+<div class="col-2">
+    <label> поиск </label>
+    </div>
+<div class="col-5">
+    <input id="id_search" oninput="getData()" name="search" value="{{request.GET.search}}" class="form-control" placeholder="введите строку поиска">
+    </div>
+<div class="col-5">
+    </div>
+</div>
+
+</form>
+    <button class="btn btn-primary" onclick="getData()"> найти </button>
 
 <table class="table table-hover table-bordered">
     <tbody>
@@ -34,7 +73,7 @@
         {% endfor %}
     </tbody>
 </table>
+<div id="app"> app</div>
 </div >
-
 
 {% endblock%}
