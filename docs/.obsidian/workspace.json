@@ -11,40 +11,17 @@
             "id": "57b50fe0c3ae26e6",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2026-05-16 12.03.33.excalidraw.md"
+                "file": "Проекты/Сводная таблица проектов.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-05-16 12.03.33.excalidraw"
-            }
-          },
-          {
-            "id": "ff60ef51fe2ccf61",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2026-05-23 11.56.32.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-05-23 11.56.32.excalidraw"
-            }
-          },
-          {
-            "id": "29e5d676aea28ebc",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/Drawing 2026-05-23 15.41.07.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-05-23 15.41.07.excalidraw"
+              "icon": "lucide-file",
+              "title": "Сводная таблица проектов"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,22 +184,46 @@
       "obsidian-excalidraw-plugin:Создать новый чертеж": false
     }
   },
-  "active": "29e5d676aea28ebc",
+  "active": "e54832a91f618c33",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2026-05-23 11.56.32.excalidraw.md",
-    "Excalidraw/Drawing 2026-05-23 15.41.07.excalidraw.md",
-    "Примеры/http/index.html~",
-    "Примеры/http/index.html",
-    "Excalidraw/Drawing 2026-05-16 12.03.33.excalidraw.md",
-    "Лекции/00_введение_в_курс_и_история_веба.md",
-    "Лекции/01_http_клиент_сервер_и_архитектура_веба.md",
-    "Excalidraw/Drawing 2026-05-19 20.42.48.excalidraw.md",
-    "Презентации/lect01.pdf",
-    "Презентации/lect00_intro.pdf",
-    "Презентации/src/lect00_intro.pdf",
-    "Презентации/src/lect01.pdf",
-    "Презентации/src/lect00_intro.typ",
-    "Презентации/src/lect01.typ",
+    "Проекты/Деменев Антон/Деменев Антон Описание проекта.pdf",
+    "Проекты/Братчиков Артём/Проект.md",
+    "Проекты/Сводная таблица проектов.md",
+    "Проекты/Бердников Даниил/Проект.md",
+    "Проекты/Зырянова Татьяна/Проект.md",
+    "Проекты/index.md",
+    "Проекты/Даниил Бердников.md",
+    "Проекты/Без названия.base",
+    "Проекты/Яковлева Полина/Проект.md",
+    "Проекты/Чернышева Анна/Проект.md",
+    "Проекты/Черепанов Иван/Проект.md",
+    "Проекты/Филипьев Василий/Проект.md",
+    "Проекты/Ульянова Наталья/Проект.md",
+    "Проекты/Тараканов Антон/Проект.md",
+    "Проекты/Селянинов Даниил/Проект.md",
+    "Проекты/Санников Максим/Проект.md",
+    "Проекты/Посохина Татьяна/Проект.md",
+    "Проекты/Полыгалов Вячеслав/Проект.md",
+    "Проекты/Пермяков Илья/Проект.md",
+    "Проекты/Остапенко Елена/Проект.md",
+    "Проекты/Осина Екатерина/Проект.md",
+    "Проекты/Овчинников Трофим/Проект.md",
+    "Проекты/Никулин Степан/Проект.md",
+    "Проекты/Нечаев Владимир/Проект.md",
+    "Проекты/Назарова Люция/Проект.md",
+    "Проекты/МУХАЙЛОВА РЕЗЕДА/Проект.md",
+    "Проекты/Лузин Иван/Проект.md",
+    "Проекты/tmp.py~",
+    "Проекты/Лузин Иван/Описание проекта старт.docx",
+    "Проекты/Лузин Иван/Презентация Старт проекта.pptx",
+    "Проекты/Назарова Люция/Джанго.docx",
+    "Проекты/Осина Екатерина/ДЗ1_Описание проекта.docx",
+    "Проекты/Зырянова Татьяна/ДЗ_Джанго_Зырянова (Статья) (2)-2.pdf",
+    "Проекты/Ларьков Денис/ДЗ мой проект.docx",
+    "Проекты/Дворак Виталий/projectspacemonkey.docx",
+    "Проекты/Чернышева Анна/Чернышева Анна Ивановна.docx",
+    "Презентации/src/img/main-qimg-09f5cf57e8c9de343282f1fa84f33345.jpg",
+    "Презентации/src/img/240px-MVC-Process.png",
     "Презентации/src/img_back/windowObjects.png",
     "Презентации/src/img_back/screenshot006.png",
     "Презентации/src/img_back/screenshot005.png",
@@ -230,13 +231,6 @@
     "Презентации/src/img_back/screenshot003.png",
     "Презентации/src/img_back/res18.png",
     "Презентации/src/img_back/res16.png",
-    "Презентации/src/img_back/ose.png",
-    "Презентации/src/img_back/main-qimg-09f5cf57e8c9de343282f1fa84f33345.jpg",
-    "Презентации/src/img_back/nginx.png",
-    "Презентации/src/img_back",
-    "Презентации/src/img",
-    "Презентации/Лекция 1.md",
-    "Excalidraw/Drawing 2026-05-15 19.44.50.excalidraw.md",
-    "Добро пожаловать.md"
+    "Презентации/src/img_back/ose.png"
   ]
 }
