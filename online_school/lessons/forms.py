@@ -1,9 +1,14 @@
 from django import forms
 from django.forms import inlineformset_factory
 from .models import Lesson, LessonMaterial
+from online_school.forms_utils import apply_bootstrap_classes
 
+class BootstrapModelForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        apply_bootstrap_classes(self)
 
-class LessonForm(forms.ModelForm):
+class LessonForm(BootstrapModelForm):
     class Meta:
         model = Lesson
         fields = (
@@ -15,7 +20,6 @@ class LessonForm(forms.ModelForm):
             "lesson_type",
             "file",
         )
-
 
 class LessonMaterialForm(forms.ModelForm):
     class Meta:

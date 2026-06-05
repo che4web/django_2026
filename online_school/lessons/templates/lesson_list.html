@@ -5,13 +5,34 @@
     <a href="{% url 'lesson-create' %}" class="btn btn-primary">Создать урок</a>
   </div>
   <div class="row">
+    <div>{{lesson}}</div>
+    <form method="get" class="card card-body mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <label>Тип урока</label>
+                <select id="lesson-type" name="lesson_type" class="form-select">
+                    <option value="">Все</option>
+                    {%for value, label in lesson_types %}
+                    <option value="{{value}}" {% if selected_lesson_type == value %} selected {%endif%}>
+                        {{label}}
+                    </option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">показать</button>
+                <a href="{% url 'home' %}" class="btn btn-secondary">сбросить</a>
+            </div>
+        </div>
+    </form>
     {%for lesson in lessons %}
     <div class="col-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{ lesson.title }}</h5>
           <p class="card-text">{{ lesson.description}}</p>
-          <a href="#" class="btn btn-primary">К уроку</a>
+          <p class="card-text">{{ lesson.get_lesson_type_display}}</p>
+          <a href="{% url 'lesson-detail' lesson.slug %}" class="btn btn-primary">К уроку</a>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class LessonType(models.TextChoices):
     THEORY = "theory", "Теория"
@@ -34,7 +34,8 @@ class Lesson(models.Model):
     def __str__(self):
         return self.title
 
-
+    def get_absolute_url(self):
+        return reverse("lesson-detail", kwargs={"slug": self.slug})
 class LessonMaterial(models.Model):
     lesson = models.ForeignKey(
         "lessons.Lesson",

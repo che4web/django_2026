@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3>Уроки через fetch</h3>
+    <a href="{% url 'lesson-create' %}" class="btn btn-primary">Создать урок</a>
+  </div>
+
+  <div class="mb-4">
+    <label for="lesson-type" class="form-label">Тип урока</label>
+    <select id="lesson-type" class="form-select">
+      <option value="">Все</option>
+      <option value="theory">Теория</option>
+      <option value="practice">Практика</option>
+      <option value="live">Онлайн</option>
+    </select>
+  </div>
+
+  <div id="lessons-list" class="row"></div>
+</div>
+
+<script>
+  const lessonTypeSelect = document.querySelector("#lesson-type");
+  const lessonsList = document.querySelector("#lessons-list");
+
+  function renderLessons(lessons) {
+    const html = lessons.map((lesson) => `
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${lesson.title}</h5>
+            <p class="card-text">${lesson.description}</p>
+            <span class="badge text-bg-light text-dark border mb-3 align-self-start">
+              ${lesson.lesson_type_display}
+            </span>
+            <a href="/lessons/${lesson.slug}/" class="btn btn-primary mt-auto align-self-start">
+              К уроку
+            </a>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    lessonsList.innerHTML = html;
+  }
+
+  async function loadLessons() {
+    const lessonType = lessonTypeSelect.value;
+    const url = lessonType ? `/lessons/lesson-json/?lesson_type=${lessonType}` : "/lessons/lesson-json/";
+    const response = await fetch(url);
+    const lessons = await response.json();
+
+    renderLessons(lessons);
+  }
+
+  lessonTypeSelect.addEventListener("change", loadLessons);
+
+  loadLessons();
+</script>
+{% endblock %}

@@ -2,14 +2,99 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Lesson, LessonType
 from online_school.forms_utils import apply_bootstrap_classes
-
 from .forms import LessonForm, LessonMaterialFormSet
+from django.views.generic import ListView, DetailView,CreateView,TemplateView
+from django.urls import reverse_lazy
+from django.http import JsonResponse
 
+
+class LessonListFetchView(TemplateView):
+    template_name = "lesson_list_fetch.html"
+
+class LessonListJSONView(ListView):
+    model = Lesson
+
+    def get_queryset(self):
+        lessons = Lesson.objects.filter(is_published=True)
+        lessons_type = self.request.GET.get("lesson_type")
+        if lessons_type:
+            lessons = lessons.filter(lesson_type=lessons_type)
+        return lessons
+
+    def render_to_response(self, context, **response_kwargs):
+        lessons = context["object_list"]
+        data = []
+
+        for lesson in lessons:
+            data.append(
+                {
+                    "id": lesson.id,
+                    "title": lesson.title,
+                    "slug": lesson.slug,
+                    "description": lesson.description,
+                    "lesson_type": lesson.lesson_type,
+                    "lesson_type_display": lesson.get_lesson_type_display(),
+                    "position": lesson.position,
+                }
+            )
+        return JsonResponse(data, safe=False)
 
 def lesson_list_view(request):
     lessons = Lesson.objects.filter(is_published=True)
     context = {"lessons": lessons}
     return render(request, "lesson_list.html", context)
+
+class LessonListView(ListView):
+    model = Lesson
+    template_name = "lesson_list.html"
+    context_object_name = "lessons"
+
+    def get_queryset(self):
+        lessons = Lesson.objects.filter(is_published=True)
+        lesson_type = self.request.GET.get("lesson_type")
+
+        if lesson_type:
+            lessons = lessons.filter(lesson_type=lesson_type)
+
+        return lessons
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["selected_lesson_type"] = self.request.GET.get("lesson_type","")
+        context["lesson_types"] = LessonType.choices
+        return context
+
+class LessonDetailView(DetailView):
+    model = Lesson
+    template_name = "lesson_detail.html"
+    context_object_name = "lesson"
+    slug_url_kwarg = "slug"
+
+    def get_queryset(self):
+        return Lesson.objects.filter(is_published=True)
+
+class LessonCreateView(CreateView):
+    model = Lesson
+    form_class = LessonForm
+    template_name = "lesson_form.html"
+    success_url = reverse_lazy("home")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @ensure_csrf_cookie
