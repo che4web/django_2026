@@ -1,15 +1,59 @@
+from django.forms import fields
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
-from .models import Lesson, LessonType
+from .models import Lesson, LessonType, LessonMaterial
 from online_school.forms_utils import apply_bootstrap_classes
 from .forms import LessonForm, LessonMaterialFormSet
-from django.views.generic import ListView, DetailView,CreateView,TemplateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from django.urls import reverse_lazy
 from django.http import JsonResponse
+from rest_framework.viewsets import ModelViewSet
+
+from django_filters import rest_framework as filters
+
+from django_filters.rest_framework import DjangoFilterBackend
+from django.db.models import Q
+from .serializers import LessonSerializer, LessonMaterialSerializer
+
+
+class LessonFilter(filters.FilterSet):
+    search = filters.CharFilter(method="get_search2")
+
+    def get_search2(self, queryset, name, value):
+        if value:
+            queryset = queryset.filter(
+                Q(title__icontains=value) | Q(description__icontains=value)
+            )
+        return queryset
+
+    class Meta:
+        model = Lesson
+        exclude = ["file"]
+
+
+class LessonViewSet(ModelViewSet):
+    queryset = Lesson.objects.all()
+    serializer_class = LessonSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = LessonFilter
+
+
+class LessonMaterialFilter(filters.FilterSet):
+    class Meta:
+        model = LessonMaterial
+        exclude = ["file"]
+
+
+class LessonMaterialViewSet(ModelViewSet):
+    queryset = LessonMaterial.objects.all()
+    serializer_class = LessonMaterialSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = LessonMaterialFilter
 
 
 class LessonListFetchView(TemplateView):
     template_name = "lesson_list_fetch.html"
+
 
 class LessonListJSONView(ListView):
     model = Lesson
@@ -39,10 +83,12 @@ class LessonListJSONView(ListView):
             )
         return JsonResponse(data, safe=False)
 
+
 def lesson_list_view(request):
     lessons = Lesson.objects.filter(is_published=True)
     context = {"lessons": lessons}
     return render(request, "lesson_list.html", context)
+
 
 class LessonListView(ListView):
     model = Lesson
@@ -60,9 +106,10 @@ class LessonListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["selected_lesson_type"] = self.request.GET.get("lesson_type","")
+        context["selected_lesson_type"] = self.request.GET.get("lesson_type", "")
         context["lesson_types"] = LessonType.choices
         return context
+
 
 class LessonDetailView(DetailView):
     model = Lesson
@@ -73,28 +120,12 @@ class LessonDetailView(DetailView):
     def get_queryset(self):
         return Lesson.objects.filter(is_published=True)
 
+
 class LessonCreateView(CreateView):
     model = Lesson
     form_class = LessonForm
     template_name = "lesson_form.html"
     success_url = reverse_lazy("home")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @ensure_csrf_cookie
