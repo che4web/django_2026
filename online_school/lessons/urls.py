@@ -17,6 +17,6 @@ urlpatterns = [
     path("lessons/create/", LessonCreateView.as_view(), name="lesson-create"),
     path("lessons/lesson-json/", LessonListJSONView.as_view(), name="lesson-json"),
     path("lessons/lessons-fetch/", LessonListFetchView.as_view(), name="lesson-fetch"),
-    path("lessons/<slug:slug>/", LessonDetailView.as_view(), name="lesson-detail"),
+    # path("lessons/<slug:slug>/", LessonDetailView.as_view(), name="lesson-detail"),
     # path('lessons/create/', lesson_create_view, name="lesson-create")
 ]
