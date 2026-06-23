@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Lesson, LessonMaterial
+from .models import Lesson, LessonMaterial, LessonVideo, LessonVideoProgress
 
 class LessonMaterialInline(admin.TabularInline):
     model = LessonMaterial
@@ -17,3 +17,10 @@ class LessonAdmin(admin.ModelAdmin):
 class LessonMaterialAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
 
+@admin.register(LessonVideo)
+class LessonVideoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+
+@admin.register(LessonVideoProgress)
+class LessonVideoProgressAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'video', 'last_position_seconds', 'duration_seconds', 'is_completed', 'completed_at', 'updated_at')

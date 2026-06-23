@@ -20,7 +20,7 @@ onMounted(()=>{
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand">Online School</a>
+      <a class="navbar-brand">Django 2026</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,10 @@ onMounted(()=>{
             <a class="nav-link">Уроки</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Создать урок</a>
+            <a class="nav-link">Домашнее задание</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Профиль</a>
           </li>
         </ul>
         <div class="d-flex align-items-center gap-2">

@@ -31,7 +31,7 @@ class LessonFilter(filters.FilterSet):
 
     class Meta:
         model = Lesson
-        exclude = ["file"]
+        exclude = ["file", "image"]
 
 
 class LessonViewSet(ModelViewSet):
