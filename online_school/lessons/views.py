@@ -1,5 +1,5 @@
 from django.forms import fields
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Lesson, LessonType, LessonMaterial
 from online_school.forms_utils import apply_bootstrap_classes
@@ -8,12 +8,15 @@ from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from rest_framework.viewsets import ModelViewSet
-
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from django_filters import rest_framework as filters
 
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
 from .serializers import LessonSerializer, LessonMaterialSerializer
+from rest_framework.permissions import IsAuthenticated
+
 
 
 class LessonFilter(filters.FilterSet):
@@ -36,6 +39,13 @@ class LessonViewSet(ModelViewSet):
     serializer_class = LessonSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = LessonFilter
+
+
+    @action(detail=False, methods=["get"])
+    def types(self, request):
+        return Response(
+            [{"value": value, "label": label} for value, label in LessonType.choices]
+        )
 
 
 class LessonMaterialFilter(filters.FilterSet):
