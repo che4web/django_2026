@@ -11,8 +11,9 @@ class LessonType(models.TextChoices):
 
 
 class MaterialType(models.TextChoices):
-    FILE = "file", "Файл"
+    FILE = "file", "pdf"
     LINK = "link", "Ссылка"
+    DOC = "doc", "docx"
 
 
 class Lesson(models.Model):
@@ -100,3 +101,43 @@ class LessonVideoProgress(models.Model):
 
     def __str__(self):
         return f"{self.user.get_full_name()} - {self.video.title}"
+
+class LessonTest(models.Model):
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name="tests", verbose_name="Урок")
+    title = models.CharField(max_length=255, verbose_name="Название")
+    passing_score = models.PositiveIntegerField(default=1, verbose_name="Проходной балл")
+    is_published = models.BooleanField(default=False, verbose_name="Опубликован")
+
+    class Meta:
+        verbose_name = "Тест урока"
+        verbose_name_plural = "Тесты уроков"
+
+    def __str__(self):
+        return self.title
+
+class TestQuestion(models.Model):
+    test = models.ForeignKey(LessonTest, on_delete=models.CASCADE, related_name="questions", verbose_name="Тест")
+    text = models.TextField(verbose_name="Вопрос")
+    position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
+
+    class Meta:
+        verbose_name = "Вопрос теста"
+        verbose_name_plural = "Вопросы теста"
+        ordering = ("position",)
+
+    def __str__(self):
+        return self.text
+
+class TestAnswer(models.Model):
+    question = models.ForeignKey(TestQuestion, on_delete=models.CASCADE, related_name="answers", verbose_name="Вопрос")
+    text = models.TextField(verbose_name="Ответ")
+    is_correct = models.BooleanField(default=False, verbose_name="Правильный")
+    position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
+
+    class Meta:
+        verbose_name = "Ответ теста"
+        verbose_name_plural = "Ответы теста"
+        ordering = ("position",)
+
+    def __str__(self):
+        return self.text

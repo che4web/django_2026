@@ -83,3 +83,4 @@ function apiConstructor(apiUrl) {
 export let Lesson = apiConstructor("/api/lesson/")
 export let LessonTypes = apiConstructor("/api/lesson/types/")
 export let LessonMaterial = apiConstructor("/api/lesson_material/")
+export let LessonTestPublic = apiConstructor("/api/lesson_test_public/")

@@ -7,7 +7,7 @@ export const useAuthStore = defineStore('auth', () => {
     const isLoaded = ref(false);
 
     const isAuthenticated = computed(() => Boolean(currentUser.value))
-    const isTeacher = computed(() => currentUser.value?.user.is_teacher)
+    const isTeacher = computed(() => currentUser.value?.user?.is_teacher)
     const displayName = computed(() => currentUser.value?.user.full_name || currentUser.value?.username)
 
     async function loadCurrentUser() {

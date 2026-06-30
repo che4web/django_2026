@@ -19,22 +19,27 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import re_path
 
+from online_school.views import serve_media
 from rest_framework.routers import DefaultRouter
-from lessons.views import LessonViewSet, LessonMaterialViewSet
-
+from lessons.views import LessonViewSet, LessonMaterialViewSet, LessonTestViewSet, TestQuestionViewSet, TestAnswerViewSet, LessonTestPublicViewSet
+from online_school.views import vue_app
 router = DefaultRouter()
 router.register("lesson", LessonViewSet)
 router.register("lesson_material", LessonMaterialViewSet)
-
-
+# router.register("lesson_test", LessonTestViewSet)
+router.register("test_question", TestQuestionViewSet)
+router.register("test_answer", TestAnswerViewSet)
+router.register("lesson_test_public", LessonTestPublicViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api/users/", include("users.urls")),
     path("api/", include(router.urls)),
+    path("", vue_app, name="vue_app"),
     path("", include("lessons.urls")),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [re_path(r"^media/(?P<path>.*)$", serve_media, name="media")]

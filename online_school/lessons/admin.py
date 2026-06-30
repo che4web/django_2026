@@ -1,5 +1,23 @@
 from django.contrib import admin
-from .models import Lesson, LessonMaterial, LessonVideo, LessonVideoProgress
+from .models import Lesson, LessonMaterial, LessonVideo, LessonVideoProgress,LessonTest, TestQuestion, TestAnswer
+
+@admin.register(LessonTest)
+class LessonTestAdmin(admin.ModelAdmin):
+    list_display = ("id", "title")
+    list_filter = ("is_published",)
+    search_fields = ("title",)
+
+@admin.register(TestQuestion)
+class TestQuestionAdmin(admin.ModelAdmin):
+    list_display = ("id", "text")
+    list_filter = ("test",)
+    search_fields = ("text",)
+
+@admin.register(TestAnswer)
+class TestAnswerAdmin(admin.ModelAdmin):
+    list_display = ("id", "text")
+    list_filter = ("question",)
+    search_fields = ("text",)
 
 class LessonMaterialInline(admin.TabularInline):
     model = LessonMaterial

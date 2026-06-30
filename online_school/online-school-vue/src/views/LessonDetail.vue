@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { Lesson } from '@/api.js'
 import { ChevronLeft, Calendar, User, Clock } from '@lucide/vue'
 import moment from 'moment'
+import LessonMaterialsList from '@/components/LessonMaterialsList.vue'
 const route = useRoute()
 const router = useRouter()
 
@@ -75,11 +76,7 @@ onMounted(getLesson)
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="h4 mb-3">Материалы</h2>
-                        <div class="d-flex flex-wrap gap-3">
-                            <template v-for="material in lesson.materials">
-                                <a :href="material.file" target="_blank" v-if="material.file" class="small text-body-secondary">{{ material.title }}</a>
-                            </template>
-                        </div>
+                        <LessonMaterialsList :lesson="lesson" />
                     </div>
                 </div>
             </div>
@@ -99,7 +96,13 @@ onMounted(getLesson)
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="h4 mb-3">Тесты</h2>
-                        <div>Тесты будут позже</div>
+                        <div v-for="test in lesson.tests" :key="test.id">
+                            <div class="d-flex justify-content-between">
+                                <h3 class="h5 mb-3">{{ test.title }}</h3>
+                                <button class="btn btn-primary" @click="router.push({ name: 'lesson-test-pass', params: { id: test.id } })">Пройти тест</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

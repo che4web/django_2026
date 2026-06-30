@@ -1,7 +1,7 @@
 from django.forms import fields
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import ensure_csrf_cookie
-from .models import Lesson, LessonType, LessonMaterial
+from .models import Lesson, LessonType, LessonMaterial, LessonTest, TestQuestion, TestAnswer
 from online_school.forms_utils import apply_bootstrap_classes
 from .forms import LessonForm, LessonMaterialFormSet
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
@@ -14,10 +14,48 @@ from django_filters import rest_framework as filters
 
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q
-from .serializers import LessonSerializer, LessonMaterialSerializer
+from .serializers import LessonSerializer, LessonMaterialSerializer, LessonTestSerializer, TestQuestionSerializer, TestAnswerSerializer, LessonTestPublicSerializer
 from rest_framework.permissions import IsAuthenticated
 
+class LessonTestPublicViewSet(ModelViewSet):
+    queryset = LessonTest.objects.all()
+    serializer_class = LessonTestPublicSerializer
+    filter_backends = [DjangoFilterBackend]
 
+
+
+class TestAnswerFilter(filters.FilterSet):
+    class Meta:
+        model = TestAnswer
+        exclude = ["question", "position"]
+
+class TestAnswerViewSet(ModelViewSet):
+    queryset = TestAnswer.objects.all()
+    serializer_class = TestAnswerSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TestAnswerFilter
+
+class TestQuestionFilter(filters.FilterSet):
+    class Meta:
+        model = TestQuestion
+        exclude = ["test", "position"]
+
+class TestQuestionViewSet(ModelViewSet):
+    queryset = TestQuestion.objects.all()
+    serializer_class = TestQuestionSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TestQuestionFilter
+
+class LessonTestFilter(filters.FilterSet):
+    class Meta:
+        model = LessonTest
+        exclude = ["passing_score", "is_published"]
+
+class LessonTestViewSet(ModelViewSet):
+    queryset = LessonTest.objects.all()
+    serializer_class = LessonTestSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = LessonTestFilter
 
 class LessonFilter(filters.FilterSet):
     search = filters.CharFilter(method="get_search2")

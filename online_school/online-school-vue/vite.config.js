@@ -20,6 +20,9 @@ const proxyOptions = {
 }
 
 export default defineConfig({
+  build:{
+    assetsDir: 'static',
+  },
   plugins: [vue()],
   server: {
     port: 8080,
