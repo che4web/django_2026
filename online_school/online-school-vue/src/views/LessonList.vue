@@ -31,7 +31,7 @@ onMounted(() => {
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center">
             <h3>Уроки</h3>
-            <a v-if="authStore.isTeacher" href="" class="btn btn-primary">Создать урок</a>
+            <router-link to="/lessons/create" class="btn btn-primary">Создать урок</router-link>
         </div>
         <div class="row">
             <div class="col-12">

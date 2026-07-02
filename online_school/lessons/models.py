@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+
+from .utils import generate_unique_lesson_slug
 class LessonType(models.TextChoices):
     THEORY = "theory", "Теория"
     PRACTICE = (
@@ -37,6 +39,11 @@ class Lesson(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_lesson_slug(self.title, exclude_pk=self.pk)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("lesson-detail", kwargs={"slug": self.slug})

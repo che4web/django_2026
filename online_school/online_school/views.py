@@ -5,7 +5,9 @@ from django.conf import settings
 from django.http import FileResponse, Http404, StreamingHttpResponse
 from django.utils._os import safe_join
 from django.shortcuts import render
+from django.views.decorators.csrf import ensure_csrf_cookie
 
+@ensure_csrf_cookie
 def vue_app(request):
     return render(request, "index.html")
 

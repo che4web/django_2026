@@ -28,7 +28,14 @@ const router = createRouter({
             path: 'lessons/:id/test-pass',
             name: 'lesson-test-pass',
             component: () => import('../views/LessonTestPass.vue')
-        }
+        },
+        {
+            path: 'lessons/create',
+            name: 'lesson-create',
+            component: () => import('../views/LessonCreate.vue')
+        },
+
+
       ]
     },
   ],

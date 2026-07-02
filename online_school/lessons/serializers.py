@@ -40,6 +40,7 @@ class LessonSerializer(ModelSerializer):
     materials = LessonMaterialSerializer(many=True, read_only=True)
     videos = LessonVideoSerializer(many=True, read_only=True)
     tests = LessonTestPublicSerializer(many=True, read_only=True)
+    slug = serializers.SlugField(read_only=True)
     def get_teacher_name(self, obj):
         if not obj.teacher:
             return ""

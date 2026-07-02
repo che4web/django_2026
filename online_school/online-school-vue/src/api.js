@@ -79,8 +79,16 @@ function apiConstructor(apiUrl) {
     },
   };
 }
-
+async function _getRaw(url) {
+    const response = await axios.get(url);
+    return response.data;
+  }
 export let Lesson = apiConstructor("/api/lesson/")
 export let LessonTypes = apiConstructor("/api/lesson/types/")
 export let LessonMaterial = apiConstructor("/api/lesson_material/")
 export let LessonTestPublic = apiConstructor("/api/lesson_test_public/")
+export let LessonVideo = apiConstructor("/api/lesson_video/")
+export let User = apiConstructor("/api/users/")
+User.getTeacher = async () => {
+  return axios.get("/api/users/teachers/").then(response => response.data);
+}

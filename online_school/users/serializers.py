@@ -2,6 +2,15 @@ from rest_framework import serializers
 
 from .models import User
 
+
+class TeacherSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source="get_full_name", read_only=True)
+
+    class Meta:
+        model = User
+        fields = ("id", "name")
+
+
 class CurrentUserSerializer(serializers.ModelSerializer):
 
     full_name = serializers.CharField(source="get_full_name", read_only=True)
