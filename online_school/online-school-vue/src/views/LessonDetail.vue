@@ -19,6 +19,11 @@ const getFormatDate = (date) => {
     return moment(date).format('DD.MM.YYYY')
 }
 onMounted(getLesson)
+
+const deleteLessen = async () => {
+    await Lesson.delete(lesson.value)
+    router.push({ name: 'lesson-list' })
+}
 </script>
 
 <template>
@@ -31,6 +36,14 @@ onMounted(getLesson)
                 <ChevronLeft :size="20" />
                 Назад
             </button>
+            <router-link
+                class="btn btn-primary"
+                tag="button"
+                :to="{ name: 'lesson-form', params: { id: lesson.id } }"
+            >
+                редактирован
+            </router-link>
+            <button class="btn btn-danger" @click="deleteLessen">удалить</button>
         </div>
         <div
             class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-3"
@@ -61,13 +74,9 @@ onMounted(getLesson)
             <div class="col-12">
                 <div class="card h-100">
                     <div class="ratio ratio-16x9 bg-body-tertiary" v-if="lesson.videos">
-                        <video
-                            :src="lesson.videos[0]?.file"
-                            class="w-100 h-100"
-                            controls
-                        ></video>
+                        <video :src="lesson.videos[0]?.file" class="w-100 h-100" controls></video>
                     </div>
-                    <div v-else>видео нет </div>
+                    <div v-else>видео нет</div>
                 </div>
             </div>
         </div>
@@ -99,9 +108,18 @@ onMounted(getLesson)
                         <div v-for="test in lesson.tests" :key="test.id">
                             <div class="d-flex justify-content-between">
                                 <h3 class="h5 mb-3">{{ test.title }}</h3>
-                                <button class="btn btn-primary" @click="router.push({ name: 'lesson-test-pass', params: { id: test.id } })">Пройти тест</button>
+                                <button
+                                    class="btn btn-primary"
+                                    @click="
+                                        router.push({
+                                            name: 'lesson-test-pass',
+                                            params: { id: test.id },
+                                        })
+                                    "
+                                >
+                                    Пройти тест
+                                </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
