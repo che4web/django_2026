@@ -1,0 +1,12 @@
+<h1>SOP</h1>
+<iframe name="target" src="http://cherepublic.ru/" type=""></iframe>
+
+<script>
+    document.getElementsByName("target")[0].onload = function () {
+        try {
+            alert(frames[0].document);
+        } catch (e) {
+            alert("error" + e);
+        }
+    };
+</script>
