@@ -7,9 +7,11 @@ from django.utils._os import safe_join
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
+
 @ensure_csrf_cookie
-def vue_app(request):
+def vue_app(request, route=""):
     return render(request, "index.html")
+
 
 def serve_media(request, path):
     full_path = safe_join(settings.MEDIA_ROOT, path)

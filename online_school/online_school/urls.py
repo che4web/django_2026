@@ -47,7 +47,7 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("", vue_app, name="vue_app"),
     path("", include("lessons.urls")),
-    path("<path:remainder>", vue_app, name="vue_app"),
+    path("<path:route>", vue_app, name="vue_app"),
 ]
 
 if settings.DEBUG:
