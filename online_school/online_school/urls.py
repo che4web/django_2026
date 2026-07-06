@@ -23,8 +23,16 @@ from django.urls import re_path
 
 from online_school.views import serve_media
 from rest_framework.routers import DefaultRouter
-from lessons.views import LessonViewSet, LessonMaterialViewSet, LessonTestViewSet, TestQuestionViewSet, TestAnswerViewSet, LessonTestPublicViewSet
+from lessons.views import (
+    LessonViewSet,
+    LessonMaterialViewSet,
+    LessonTestViewSet,
+    TestQuestionViewSet,
+    TestAnswerViewSet,
+    LessonTestPublicViewSet,
+)
 from online_school.views import vue_app
+
 router = DefaultRouter()
 router.register("lesson", LessonViewSet)
 router.register("lesson_material", LessonMaterialViewSet)
@@ -39,6 +47,7 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("", vue_app, name="vue_app"),
     path("", include("lessons.urls")),
+    path("<path:remainder>", vue_app, name="vue_app"),
 ]
 
 if settings.DEBUG:
