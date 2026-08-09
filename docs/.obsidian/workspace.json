@@ -42,9 +42,59 @@
               "icon": "excalidraw-icon",
               "title": "Drawing 2026-07-02 18.13.46.excalidraw"
             }
+          },
+          {
+            "id": "e69ac244d7d691a8",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-07-05 20.17.10.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-07-05 20.17.10.excalidraw"
+            }
+          },
+          {
+            "id": "21a74403c8971ace",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Проекты/Сводная таблица проектов.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Сводная таблица проектов"
+            }
+          },
+          {
+            "id": "7075e21a64c02c33",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "примечания к выпуску 1.13.4"
+            }
+          },
+          {
+            "id": "e48c0d5b69be46eb",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2026-08-07 22.38.18.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-08-07 22.38.18.excalidraw"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -64,7 +114,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Файловый менеджер"
@@ -101,7 +153,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "16af3867fcb33f22",
@@ -207,10 +260,26 @@
       "obsidian-excalidraw-plugin:Создать новый чертеж": false
     }
   },
-  "active": "ed44201ca72c073e",
+  "active": "e48c0d5b69be46eb",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2026-06-28 23.59.39.excalidraw.md",
+    "Excalidraw/Drawing 2026-08-07 22.38.18.excalidraw.md",
+    "Excalidraw/Drawing 2026-07-06 12.34.39.excalidraw.md",
+    "Excalidraw/Drawing 2026-07-05 20.17.10.excalidraw.md",
     "Excalidraw/Drawing 2026-07-02 18.13.46.excalidraw.md",
+    "Проекты/Сводная таблица проектов.md",
+    "Презентации/src/lect12.pdf",
+    "Презентации/src/lect13.pdf",
+    "Презентации/src/assets/er_diagram.png",
+    "Презентации/src/assets/er_diagram.svg",
+    "Презентации/src/assets/er_diagram.mmd",
+    "Презентации/src/lect13.typ~",
+    "Презентации/src/assets/2026-07-04-11-54-25.png",
+    "Презентации/src/assets/2026-07-04-11-54-07.png",
+    "Презентации/src/lect13.typ",
+    "Презентации/src/lect12.typ~",
+    "Презентации/src/assets/2026-07-04-11-42-44.png",
+    "Презентации/src/assets/2026-07-04-11-42-00.png",
+    "Excalidraw/Drawing 2026-06-28 23.59.39.excalidraw.md",
     "Excalidraw/Drawing 2026-06-28 12.39.56.excalidraw.md",
     "Домашние задания/03_Верстка макетов.md",
     "Презентации/src/lect10.typ~",
@@ -219,7 +288,6 @@
     "Презентации/example/sop.html~",
     "Презентации/example/index.html",
     "Презентации/example/sop.html",
-    "Презентации/example/SOP.html~",
     "Excalidraw/Drawing 2026-06-16 19.11.07.excalidraw.md",
     "Excalidraw/Drawing 2026-06-06 12.11.26.excalidraw.md",
     "Excalidraw/Drawing 2026-05-30 11.50.51.excalidraw.md",
@@ -228,32 +296,17 @@
     "Excalidraw/Drawing 2026-05-19 20.42.48.excalidraw.md",
     "Excalidraw/Drawing 2026-05-16 12.03.33.excalidraw.md",
     "Домашние задания/04_mvp.md",
-    "Проекты/Сводная таблица проектов.md",
     "Проекты/Чернышева Анна/flow.png",
-    "Проекты/Зырянова Татьяна/Система прогнозирования электропотребления.pdf",
     "Домашние задания/02_Разработка_макетов.md",
-    "Презентации/lect08.pdf",
-    "Проекты/Чернышева Анна/01_Каталог (категории).pdf",
-    "Проекты/Чернышева Анна/00_Главная.pdf",
     "Проекты/Чернышева Анна/Проект.md",
     "Проекты/Ульянова Наталья/Проект.md",
     "Проекты/Тараканов Антон/request.jpg",
     "Проекты/Тараканов Антон/students.jpg",
-    "Проекты/Тараканов Антон/rooms.jpg",
-    "Проекты/Тараканов Антон/dashboard.jpg",
     "Проекты/Тараканов Антон/Проект.md",
     "Проекты/Селянинов Даниил/Проект.md",
-    "Проекты/Селянинов Даниил/Wireframe Селянинов Д.О. (Пробный Детальный) .pdf",
-    "Проекты/Санников Максим/Макеты/01 â½áó¡á∩.png",
-    "Проекты/Санников Максим/Макеты/05 üεñªÑΓδ.png",
-    "Проекты/Санников Максим/Макеты/02 ùÑ¬¿.png",
-    "Проекты/Санников Максим/Макеты/03 Ç¡á½¿Γ¿¬á.png",
     "Проекты/Санников Максим/Проект.md",
     "Проекты/Овчинников Трофим/Проект.md",
     "Проекты/Никулин Степан/Проект.md",
-    "Проекты/Нечаев Владимир/Проект.md",
-    "Проекты/Назарова Люция/Проект.md",
-    "Проекты/Ларьков Денис/Проект.md",
-    "Проекты/Касачева Анна/Проект.md"
+    "Проекты/Нечаев Владимир/Проект.md"
   ]
 }

@@ -1,0 +1,11 @@
+erDiagram
+    USER ||--o| STUDENT_PROFILE : has
+    USER ||--o| TEACHER_PROFILE : has
+    USER ||--o{ LESSON : teaches
+    LESSON ||--o{ LESSON_MATERIAL : has
+    LESSON ||--o{ LESSON_VIDEO : has
+    LESSON ||--o| LESSON_TEST : has
+    LESSON_TEST ||--o{ TEST_QUESTION : contains
+    TEST_QUESTION ||--o{ TEST_ANSWER : contains
+    USER ||--o{ LESSON_VIDEO_PROGRESS : tracks
+    LESSON_VIDEO ||--o{ LESSON_VIDEO_PROGRESS : has

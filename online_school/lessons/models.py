@@ -2,7 +2,13 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
 from .utils import generate_unique_lesson_slug
+
+
 class LessonType(models.TextChoices):
     THEORY = "theory", "Теория"
     PRACTICE = (
@@ -23,15 +29,30 @@ class Lesson(models.Model):
     slug = models.SlugField(unique=True, verbose_name="Слаг")
     description = models.TextField(blank=True, verbose_name="Описание")
     lesson_type = models.CharField(
-        choices=LessonType.choices, default=LessonType.THEORY, blank=True, verbose_name="Тип урока"
+        choices=LessonType.choices,
+        default=LessonType.THEORY,
+        blank=True,
+        verbose_name="Тип урока",
     )
     is_published = models.BooleanField(default=False, verbose_name="Опубликован")
     position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
     file = models.FileField(upload_to="lessons/file", blank=True, null=True)
-    duration_minutes = models.PositiveIntegerField(default=1, verbose_name="Длительность в минутах")
+    duration_minutes = models.PositiveIntegerField(
+        default=1, verbose_name="Длительность в минутах"
+    )
     lesson_date = models.DateTimeField(blank=True, null=True, verbose_name="Дата урока")
-    image = models.ImageField(upload_to="lessons/image", blank=True, null=True, verbose_name="Превью урока")
-    teacher = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="lessons", verbose_name="Преподаватель", blank=True, null=True)
+    image = models.ImageField(
+        upload_to="lessons/image", blank=True, null=True, verbose_name="Превью урока"
+    )
+    teacher = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="lessons",
+        verbose_name="Преподаватель",
+        blank=True,
+        null=True,
+    )
+
     class Meta:
         verbose_name = "Урок"
         verbose_name_plural = "Уроки"
@@ -47,6 +68,8 @@ class Lesson(models.Model):
 
     def get_absolute_url(self):
         return reverse("lesson-detail", kwargs={"slug": self.slug})
+
+
 class LessonMaterial(models.Model):
     lesson = models.ForeignKey(
         "lessons.Lesson",
@@ -60,7 +83,9 @@ class LessonMaterial(models.Model):
         max_length=10,
         verbose_name="Тип материала",
     )
-    file = models.FileField(upload_to="lesson_materials/", blank=True, verbose_name="Файл")
+    file = models.FileField(
+        upload_to="lesson_materials/", blank=True, verbose_name="Файл"
+    )
     url = models.URLField(blank=True, verbose_name="Ссылка")
     position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
     title = models.CharField(max_length=255, verbose_name="Название")
@@ -73,6 +98,7 @@ class LessonMaterial(models.Model):
     def __str__(self):
         return self.title
 
+
 class LessonVideo(models.Model):
     lesson = models.ForeignKey(
         "lessons.Lesson",
@@ -80,7 +106,9 @@ class LessonVideo(models.Model):
         related_name="videos",
         verbose_name="Урок",
     )
-    file = models.FileField(upload_to="lessons/videos/", blank=True, null=True, verbose_name="Видео")
+    file = models.FileField(
+        upload_to="lessons/videos/", blank=True, null=True, verbose_name="Видео"
+    )
     title = models.CharField(max_length=255, verbose_name="Название")
     position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
 
@@ -92,13 +120,30 @@ class LessonVideo(models.Model):
     def __str__(self):
         return self.title
 
+
 class LessonVideoProgress(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="lesson_video_progress", verbose_name="Пользователь")
-    video = models.ForeignKey(LessonVideo, on_delete=models.CASCADE, related_name="progress", verbose_name="Видео")
-    last_position_seconds = models.PositiveIntegerField(default=0, verbose_name="Последняя позиция в секундах")
-    duration_seconds = models.PositiveIntegerField(default=0, verbose_name="Длительность в секундах")
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="lesson_video_progress",
+        verbose_name="Пользователь",
+    )
+    video = models.ForeignKey(
+        LessonVideo,
+        on_delete=models.CASCADE,
+        related_name="progress",
+        verbose_name="Видео",
+    )
+    last_position_seconds = models.PositiveIntegerField(
+        default=0, verbose_name="Последняя позиция в секундах"
+    )
+    duration_seconds = models.PositiveIntegerField(
+        default=0, verbose_name="Длительность в секундах"
+    )
     is_completed = models.BooleanField(default=False, verbose_name="Завершено")
-    completed_at = models.DateTimeField(blank=True, null=True, verbose_name="Дата завершения")
+    completed_at = models.DateTimeField(
+        blank=True, null=True, verbose_name="Дата завершения"
+    )
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
 
     class Meta:
@@ -109,10 +154,15 @@ class LessonVideoProgress(models.Model):
     def __str__(self):
         return f"{self.user.get_full_name()} - {self.video.title}"
 
+
 class LessonTest(models.Model):
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name="tests", verbose_name="Урок")
+    lesson = models.ForeignKey(
+        Lesson, on_delete=models.CASCADE, related_name="tests", verbose_name="Урок"
+    )
     title = models.CharField(max_length=255, verbose_name="Название")
-    passing_score = models.PositiveIntegerField(default=1, verbose_name="Проходной балл")
+    passing_score = models.PositiveIntegerField(
+        default=1, verbose_name="Проходной балл"
+    )
     is_published = models.BooleanField(default=False, verbose_name="Опубликован")
 
     class Meta:
@@ -122,8 +172,14 @@ class LessonTest(models.Model):
     def __str__(self):
         return self.title
 
+
 class TestQuestion(models.Model):
-    test = models.ForeignKey(LessonTest, on_delete=models.CASCADE, related_name="questions", verbose_name="Тест")
+    test = models.ForeignKey(
+        LessonTest,
+        on_delete=models.CASCADE,
+        related_name="questions",
+        verbose_name="Тест",
+    )
     text = models.TextField(verbose_name="Вопрос")
     position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
 
@@ -135,8 +191,14 @@ class TestQuestion(models.Model):
     def __str__(self):
         return self.text
 
+
 class TestAnswer(models.Model):
-    question = models.ForeignKey(TestQuestion, on_delete=models.CASCADE, related_name="answers", verbose_name="Вопрос")
+    question = models.ForeignKey(
+        TestQuestion,
+        on_delete=models.CASCADE,
+        related_name="answers",
+        verbose_name="Вопрос",
+    )
     text = models.TextField(verbose_name="Ответ")
     is_correct = models.BooleanField(default=False, verbose_name="Правильный")
     position = models.PositiveIntegerField(default=1, verbose_name="Позиция")
@@ -148,3 +210,18 @@ class TestAnswer(models.Model):
 
     def __str__(self):
         return self.text
+
+
+@receiver(post_save, sender=Lesson)
+async def send_message(sender, instance, created, **kwargs):
+    import nats
+    import json
+    from .nats import get_nats
+
+    if created:
+        nc = await get_nats()
+        id = instance.id
+        title = instance.title
+
+        msg = {"message": f"create lesson id:{id}  title: {title}"}
+        r = await nc.publish("test_room", json.dumps(msg).encode())

@@ -13,6 +13,18 @@ const router = createRouter({
                     name: 'home',
                     redirect: { name: 'lesson-list' },
                 },
+
+                {
+                    path: 'chat',
+                    name: 'caht',
+                    component: () => import('../views/Chat.vue'),
+                },
+                {
+                    path: 'chat-nats',
+                    name: 'caht-nats',
+                    component: () => import('../views/ChatNats.vue'),
+                },
+
                 {
                     path: 'lessons',
                     name: 'lesson-list',
@@ -36,7 +48,7 @@ const router = createRouter({
                 {
                     path: 'lessons/create',
                     name: 'lesson-create',
-                    component: () => import('../views/LessonCreate.vue')
+                    component: () => import('../views/LessonCreate.vue'),
                 },
             ],
         },
